@@ -1,11 +1,17 @@
 import { Component } from "@odoo/owl";
 import { registry } from "@web/core/registry";
+import { TodoItem } from "./components/todo_item";
 
 export class TodoApp extends Component {
     static template = "odoo_todo.TodoApp";
+    static components = { TodoItem };
 
     setup() {
-        // Component initialization happens here.
+        this.todos = [
+            { id: 1, title: "Learn OWL Components" },
+            { id: 2, title: "Build Todo App" },
+            { id: 3, title: "Push First Commit" },
+        ];
     }
 
     onAddTodoClick() {

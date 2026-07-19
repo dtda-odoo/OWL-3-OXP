@@ -7,9 +7,7 @@
     "depends": ["web"],
     "assets": {
         "web.assets_backend": [
-            "todo/static/src/app.js",
-            "todo/static/src/app.xml",
-            "todo/static/src/app.scss",
+            "todo/static/src/**/*",
         ],
     },
     "data": [

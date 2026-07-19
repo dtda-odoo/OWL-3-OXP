@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="odoo_todo.TodoItem">
+
+    <div class="o_todo_item">
+
+        <span>
+            <span> - </span>
+            <t t-out="this.props.todo.title"/>
+        </span>
+
+    </div>
+
+</t>
+
+</templates>

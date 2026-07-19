@@ -10,11 +10,11 @@
 
                 <h3>Today's Tasks</h3>
 
-                <ul class="o_todo_list">
-                    <li>Learn OWL Components</li>
-                    <li>Build Todo App</li>
-                    <li>Push First Commit</li>
-                </ul>
+                <div class="o_todo_list">
+                    <t t-foreach="this.todos" t-as="todo" t-key="todo.id">
+                        <TodoItem todo="todo"/>
+                    </t>
+                </div>
 
                 <button
                     class="btn btn-primary"
