@@ -7,7 +7,7 @@
 
                 <div class="o_stat_card">
                     <span class="o_stat_value">
-                        <t t-out="this.totalTodos()"/>
+                        <t t-out="this.store.totalTodos()"/>
                     </span>
                     <span class="o_stat_label">
                         Total
@@ -16,7 +16,7 @@
 
                 <div class="o_stat_card">
                     <span class="o_stat_value text-success">
-                        <t t-out="this.completedTodos()"/>
+                        <t t-out="this.store.completedTodos()"/>
                     </span>
                     <span class="o_stat_label">
                         Completed
@@ -25,7 +25,7 @@
 
                 <div class="o_stat_card">
                     <span class="o_stat_value text-warning">
-                        <t t-out="this.pendingTodos()"/>
+                        <t t-out="this.store.pendingTodos()"/>
                     </span>
                     <span class="o_stat_label">
                         Pending
@@ -42,13 +42,8 @@
 
                 <t t-set-slot="default">
                     <div class="o_todo_list">
-                        <t t-foreach="this.todos()" t-as="todo" t-key="todo.id">
-                            <TodoItem
-                                todo="todo"
-                                onToggle.bind="this.toggleTodo"
-                                onDelete.bind="this.deleteTodo"
-                                onEdit.bind="this.editTodo"
-                            />
+                        <t t-foreach="this.store.todos()" t-as="todo" t-key="todo.id">
+                            <TodoItem todo="todo"/>
                         </t>
                     </div>
                 </t>
@@ -56,7 +51,7 @@
                 <t t-set-slot="footer">
                     <button
                         class="btn btn-primary"
-                        t-on-click="this.addTodo"
+                        t-on-click="() => this.store.openCreate()"
                     >
                         Add Todo
                     </button>
@@ -64,5 +59,8 @@
 
             </Card>
         </div>
+        <TodoDialog
+            t-if="this.store.dialog.isOpen"
+        />
     </t>
 </templates>

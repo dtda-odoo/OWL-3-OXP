@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates xml:space="preserve">
-
 <t t-name="odoo_todo.TodoItem">
 
     <div class="o_todo_item">
 
         <input
-            type="checkbox" class="checkbox"
+            type="checkbox"
+            class="form-check-input"
             t-att-checked="this.props.todo.completed"
-            t-on-change="() => this.props.onToggle(this.props.todo)"
+            t-on-change="() => this.store.toggleTodo(this.props.todo)"
         />
 
         <h1
@@ -19,24 +17,24 @@
             <t t-out="this.props.todo.title"/>
         </h1>
 
-        <div class="d-flex gap-2 ms-auto">
+        <div class="btn-group ms-auto">
+
             <button
-                class="btn btn-sm btn-outline-secondary"
-                t-on-click="() => this.props.onEdit(this.props.todo)"
+                class="btn btn-outline-secondary btn-sm"
+                t-on-click="() => this.store.openEdit(this.props.todo)"
             >
                 Edit
             </button>
 
             <button
-                class="btn btn-sm btn-outline-danger"
-                t-on-click="() => this.props.onDelete(this.props.todo)"
+                class="btn btn-outline-danger btn-sm"
+                t-on-click="() => this.store.deleteTodo(this.props.todo)"
             >
                 Delete
             </button>
+
         </div>
 
     </div>
 
 </t>
-
-</templates>

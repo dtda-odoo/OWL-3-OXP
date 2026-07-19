@@ -1,5 +1,7 @@
-import { Component } from "@odoo/owl";
+import { Component, plugin } from "@odoo/owl";
 import { useProps, t } from "@odoo/owl";
+
+import { TodoStorePlugin } from "../../plugins/todo_store_plugin";
 
 export class TodoItem extends Component {
     static template = "odoo_todo.TodoItem";
@@ -10,8 +12,9 @@ export class TodoItem extends Component {
             title: t.string(),
             completed: t.boolean().optional(false),
         }),
-        onToggle: t.function(),
-        onDelete: t.function(),
-        onEdit: t.function(),
     });
+
+    setup() {
+        this.store = plugin(TodoStorePlugin);
+    }
 }

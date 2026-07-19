@@ -5,9 +5,17 @@
     "summary": "OWL 3 Todo tutorial",
     "license": "LGPL-3",
     "depends": ["web"],
-    "assets": {
-        "web.assets_backend": [
-            "todo/static/src/**/*",
+    'assets': {
+        'web.assets_backend': [
+            'todo/static/src/app.js',
+            'todo/static/src/app.xml',
+            'todo/static/src/app.scss',
+
+            'todo/static/src/plugins/*.js',
+
+            'todo/static/src/components/card/*',
+            'todo/static/src/components/todo_dialog/*',
+            'todo/static/src/components/todo_item/*',
         ],
     },
     "data": [
