@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="odoo_todo.TodoApp">
+        <div class="o_todo_app">
+            <h1>Odoo Todo</h1>
+
+            <p>
+                Welcome to the OWL 3 Todo tutorial.
+            </p>
+        </div>
+    </t>
+
+</templates>
