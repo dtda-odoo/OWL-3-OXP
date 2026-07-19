@@ -1,4 +1,4 @@
-import { Component, signal, proxy } from "@odoo/owl";
+import { Component, computed, effect, signal, proxy } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { TodoItem } from "./components/todo_item";
 import { Card } from "./components/card";
@@ -15,6 +15,22 @@ export class TodoApp extends Component {
             proxy({ id: 2, title: "Build Todo App" }),
             proxy({ id: 3, title: "Push First Commit", completed: true }),
         ]);
+
+        this.totalTodos = computed(() => this.todos().length);
+
+        this.completedTodos = computed(() =>
+            this.todos().filter(todo => todo.completed).length
+        );
+
+        this.pendingTodos = computed(() =>
+            this.totalTodos() - this.completedTodos()
+        );
+
+        effect(() => {
+            console.log(
+                `Todos changed (${this.totalTodos()} total)`
+            );
+        });
     }
 
     addTodo() {

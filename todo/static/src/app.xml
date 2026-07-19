@@ -2,6 +2,38 @@
 <templates xml:space="preserve">
     <t t-name="odoo_todo.TodoApp">
         <div class="o_todo_app">
+
+            <div class="o_stats">
+
+                <div class="o_stat_card">
+                    <span class="o_stat_value">
+                        <t t-out="this.totalTodos()"/>
+                    </span>
+                    <span class="o_stat_label">
+                        Total
+                    </span>
+                </div>
+
+                <div class="o_stat_card">
+                    <span class="o_stat_value text-success">
+                        <t t-out="this.completedTodos()"/>
+                    </span>
+                    <span class="o_stat_label">
+                        Completed
+                    </span>
+                </div>
+
+                <div class="o_stat_card">
+                    <span class="o_stat_value text-warning">
+                        <t t-out="this.pendingTodos()"/>
+                    </span>
+                    <span class="o_stat_label">
+                        Pending
+                    </span>
+                </div>
+
+            </div>
+
             <Card>
 
                 <t t-set-slot="title">
