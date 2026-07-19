@@ -10,8 +10,13 @@
 
                 <t t-set-slot="default">
                     <div class="o_todo_list">
-                        <t t-foreach="this.todos" t-as="todo" t-key="todo.id">
-                            <TodoItem todo="todo"/>
+                        <t t-foreach="this.todos()" t-as="todo" t-key="todo.id">
+                            <TodoItem
+                                todo="todo"
+                                onToggle.bind="this.toggleTodo"
+                                onDelete.bind="this.deleteTodo"
+                                onEdit.bind="this.editTodo"
+                            />
                         </t>
                     </div>
                 </t>
@@ -19,7 +24,7 @@
                 <t t-set-slot="footer">
                     <button
                         class="btn btn-primary"
-                        t-on-click="this.onAddTodoClick"
+                        t-on-click="this.addTodo"
                     >
                         Add Todo
                     </button>
