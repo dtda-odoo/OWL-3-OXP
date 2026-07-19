@@ -3,11 +3,28 @@
 
     <t t-name="odoo_todo.TodoApp">
         <div class="o_todo_app">
+
             <h1>Odoo Todo</h1>
 
-            <p>
-                Welcome to the OWL 3 Todo tutorial.
-            </p>
+            <div class="o_todo_card">
+
+                <h3>Today's Tasks</h3>
+
+                <ul class="o_todo_list">
+                    <li>Learn OWL Components</li>
+                    <li>Build Todo App</li>
+                    <li>Push First Commit</li>
+                </ul>
+
+                <button
+                    class="btn btn-primary"
+                    t-on-click="this.onAddTodoClick"
+                >
+                    Add Todo
+                </button>
+
+            </div>
+
         </div>
     </t>
 
