@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-
     <t t-name="odoo_todo.TodoApp">
         <div class="o_todo_app">
+            <Card>
 
-            <h1>Odoo Todo</h1>
+                <t t-set-slot="title">
+                    <h3>Today's Tasks</h3>
+                </t>
 
-            <div class="o_todo_card">
+                <t t-set-slot="default">
+                    <div class="o_todo_list">
+                        <t t-foreach="this.todos" t-as="todo" t-key="todo.id">
+                            <TodoItem todo="todo"/>
+                        </t>
+                    </div>
+                </t>
 
-                <h3>Today's Tasks</h3>
+                <t t-set-slot="footer">
+                    <button
+                        class="btn btn-primary"
+                        t-on-click="this.onAddTodoClick"
+                    >
+                        Add Todo
+                    </button>
+                </t>
 
-                <div class="o_todo_list">
-                    <t t-foreach="this.todos" t-as="todo" t-key="todo.id">
-                        <TodoItem todo="todo"/>
-                    </t>
-                </div>
-
-                <button
-                    class="btn btn-primary"
-                    t-on-click="this.onAddTodoClick"
-                >
-                    Add Todo
-                </button>
-
-            </div>
-
+            </Card>
         </div>
     </t>
-
 </templates>

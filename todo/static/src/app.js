@@ -1,10 +1,11 @@
 import { Component } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { TodoItem } from "./components/todo_item";
+import { Card } from "./components/card";
 
 export class TodoApp extends Component {
     static template = "odoo_todo.TodoApp";
-    static components = { TodoItem };
+    static components = { Card, TodoItem };
 
     setup() {
         this.todos = [
