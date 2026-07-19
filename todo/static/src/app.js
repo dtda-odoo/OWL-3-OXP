@@ -1,4 +1,4 @@
-import { Component, signal } from "@odoo/owl";
+import { Component, signal, proxy } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { TodoItem } from "./components/todo_item";
 import { Card } from "./components/card";
@@ -11,9 +11,9 @@ export class TodoApp extends Component {
         this.nextId = 4;
 
         this.todos = signal.Array([
-            { id: 1, title: "Learn OWL Components" },
-            { id: 2, title: "Build Todo App" },
-            { id: 3, title: "Push First Commit", completed: true },
+            proxy({ id: 1, title: "Learn OWL Components" }),
+            proxy({ id: 2, title: "Build Todo App" }),
+            proxy({ id: 3, title: "Push First Commit", completed: true }),
         ]);
     }
 
@@ -30,13 +30,8 @@ export class TodoApp extends Component {
         });
     }
 
-    toggleTodo(todo) {
-        const index = this.todos().indexOf(todo);
-
-        this.todos()[index] = {
-            ...todo,
-            completed: !todo.completed,
-        };
+   toggleTodo(todo) {
+        todo.completed = !todo.completed;
     }
 
     editTodo(todo) {
