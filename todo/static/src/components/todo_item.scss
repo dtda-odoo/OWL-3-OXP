@@ -1,0 +1,15 @@
+.o_todo_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid #ac5b5b;
+    font-size: 32px;
+
+    .checkbox {
+        transform: scale(2)
+    }
+    .checkbox:checked {
+        accent-color: red
+    }
+}

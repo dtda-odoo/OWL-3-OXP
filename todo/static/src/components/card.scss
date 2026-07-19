@@ -1,0 +1,19 @@
+.o_card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
+
+.o_card_header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.o_card_body {
+    padding: 20px;
+}
+
+.o_card_footer {
+    padding: 16px 20px;
+    border-top: 1px solid #eee;
+}

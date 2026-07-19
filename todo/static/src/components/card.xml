@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="odoo_todo.Card">
+
+    <div class="o_card">
+        <div class="o_card_header">
+            <t t-call-slot="title"/>
+        </div>
+
+        <div class="o_card_body">
+            <t t-call-slot="default"/>
+        </div>
+
+        <div class="o_card_footer">
+            <t t-call-slot="footer"/>
+        </div>
+    </div>
+
+</t>
+
+</templates>
